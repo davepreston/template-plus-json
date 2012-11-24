@@ -58,12 +58,19 @@ this.TemplatePlusJson = {};
 		};
 		this.retrieveJSON = function (rootName) {
 		  var callingTPJ = this;
+		  if (this.jsonUrl != "") {
 		  $.getJSON(this.jsonUrl, function(responseJSON) {
 			callingTPJ.jsonData = responseJSON;
 			callingTPJ.jsonPreprocess(rootName);
 			callingTPJ.jsonRetrieved = true;
 			callingTPJ.combine();
 		  });
+		  }
+		  else {
+			callingTPJ.jsonData = {};
+			callingTPJ.jsonRetrieved = true;
+			callingTPJ.combine();
+		  }
 		};
 		this.combine = function () {
 			if ( this.combining || !this.templateRetrieved || !this.jsonRetrieved) {
