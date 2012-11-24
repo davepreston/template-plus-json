@@ -15,7 +15,7 @@ this.TemplatePlusJson = {};
 	$(function() {
 		$('.t-p-j-auto').each(function() {
 			TemplatePlusJson.workers++;
-			$this = $(this);
+			var $this = $(this);
 			(new TemplatePlusJson.Combiner($this.attr('data-template'), 
 			$this.attr('data-json'), 
 			function () {
